@@ -9,15 +9,15 @@
         <h1>Todos</h1>
         <ul id="tasks">
             {{ range .todos }}
-            <li>
+            <li id="todo-{{.Id}}">
                 {{.Title}} - {{.Status}}
-                <button hx-delete="/todos/{{.ID}}">Delete</button>
+                <button hx-delete="/todos/{{.Id}}" hx-target="#todo-{{.Id}}" hx-swap="delete">Delete</button>
             </li>
         {{ else }}
             <li>No tasks found.</li>
             {{ end }}
         </ul>
-        <form hx-post="/todos" hx-target="#tasks" hx-swap="beforeeend">
+        <form hx-post="/todos" hx-target="#tasks" hx-swap="beforeend">
             <input name="title" />
             <input name="status" />
             <button>Save</button>

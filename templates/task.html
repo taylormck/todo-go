@@ -1,4 +1,4 @@
-<li>
+<li id="todo-{{.id}}">
     {{.title}} - {{.status}}
-    <button hx-delete="/todos/{{.id}}">Delete</button>
+    <button hx-delete="/todos/{{.id}}" hx-target="#todo-{{.id}}" hx-swap="delete">Delete</button>
 </li>
